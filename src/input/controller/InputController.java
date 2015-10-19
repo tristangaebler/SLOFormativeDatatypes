@@ -43,24 +43,24 @@ public class InputController
 	
 	public boolean promptForWeight()
 	{
-		boolean validDouble = false;
+		boolean heavy = false;
 		System.out.println("Please type in your weight.");
 		String tempUserInput;
 		tempUserInput = inputScanner.next();
 		
 		double weightValue = Double.parseDouble(tempUserInput);
 		
-		if((weightValue * 10) % 2 == 0)
+		if(weightValue > 175)
 		{
-			System.out.println("You did not type in your weight with a decimal");
-			validDouble = false;
+			System.out.println("You weigh more than 175 pounds");
+			heavy = true;
 		}
-		else if((weightValue-(int)weightValue) != 0)
+		else if(weightValue <= 175)
 		{
-			System.out.println("You typed in a decimal!");
-			validDouble = true;
+			System.out.println("You weigh less than or equal too 175 pounds");
+			heavy = false;
 		}
-		return validDouble;
+		return heavy;
 	}
 	
 	public boolean promptForName()
